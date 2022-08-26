@@ -1,0 +1,50 @@
+flag = 0
+canatidad_barbijo_mas_caro = 0
+acumulador_jabon = 0
+fabricante_mas_caro = "No hay fabricante barbijos"
+
+for i in range(5):
+    
+    while (True):
+        tipo = input("Ingrese el tipo:'barbijo', 'jabón' o 'alcohol': ")
+        if (tipo != "barbijo" and tipo != "jabón" and tipo != "alcohol"): 
+            continue
+        else: break 
+    
+    while (True):
+        precio = input("Ingrese precio entre 100 y 300: ")
+        precio = int(precio)
+        if (precio<100 or precio>300): continue
+        else: break
+    
+    while (True):
+        cantidad_unidades = input("Ingrese la cantidad mayor a 0 y menor a 1000: ")
+        cantidad_unidades = int(cantidad_unidades)
+        if (cantidad_unidades<=0 or cantidad_unidades>1000): continue
+        else: break
+    
+    marca = input("Ingrese la marca: ")
+    
+    fabricante = input("Ingrese el fabricante: ")
+    
+    if (tipo == "barbijo"):
+        if (flag == 0 or barbijo_mas_caro < precio):
+            barbijo_mas_caro = precio
+            canatidad_barbijo_mas_caro = cantidad_unidades
+            fabricante_mas_caro = fabricante
+    elif (tipo == "jabón"):
+        acumulador_jabon =+ cantidad_unidades
+
+    if (flag == 0 or item_con_mas_unidades < cantidad_unidades):
+        item_con_mas_unidades = cantidad_unidades
+        tipo_mas_unidades = tipo
+        fabricante_mas_unidades = fabricante   
+        flag = 1
+    
+
+print("La cantidad de unidades de barbijos mas caros " + str(canatidad_barbijo_mas_caro) + " y el fabricante es " + fabricante_mas_caro)
+
+print("El item con mas unidades es " + tipo_mas_unidades + " y el fabricante es " + fabricante_mas_unidades)
+
+print("Hay " + str(acumulador_jabon) + " jabones en total")
+
